@@ -1,0 +1,11 @@
+[package]
+name = "hapi_cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
+hapi_core = { path = "../core" }
+serde.workspace = true
+serde_json.workspace = true
+tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread"] }

@@ -1,0 +1,12 @@
+[package]
+name = "hapi_core"
+version = "0.1.0"
+edition = "2024"
+
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+strum = { version = "0.28.0", features = ["strum_macros"] }
+strum_macros = "0.28.0"
