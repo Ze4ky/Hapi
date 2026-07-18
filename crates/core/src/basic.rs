@@ -7,4 +7,10 @@ pub enum RequestMethod {
     POST,
     #[strum(serialize = "GET")]
     GET,
+    #[strum(serialize = "PUT")]
+    PUT,
+    #[strum(serialize = "DELETE")]
+    DELETE,
+    #[strum(serialize = "PATCH")]
+    PATCH,
 }

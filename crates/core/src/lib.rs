@@ -3,7 +3,7 @@ use reqwest::Client;
 use crate::{
     basic::RequestMethod,
     model::{RequestInfo, RequestResponse},
-    request::{get_request, post_request},
+    request::{delete_request, get_request, patch_request, post_request, put_request},
 };
 
 pub mod basic;
@@ -40,6 +40,26 @@ impl Api {
                     request_info.payload.headers,
                 )
                 .await?;
+                Ok(response)
+            }
+
+            RequestMethod::PUT => {
+                let response =
+                    put_request(self.client.clone(), &request_info.url, request_info.payload)
+                        .await?;
+                Ok(response)
+            }
+
+            RequestMethod::DELETE => {
+                let response =
+                    delete_request(self.client.clone(), &request_info.url, request_info.payload)
+                        .await?;
+                Ok(response)
+            }
+            RequestMethod::PATCH => {
+                let response =
+                    patch_request(self.client.clone(), &request_info.url, request_info.payload)
+                        .await?;
                 Ok(response)
             }
         }
