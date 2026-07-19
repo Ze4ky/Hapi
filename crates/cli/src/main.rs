@@ -35,6 +35,12 @@ async fn main() {
     loop {
         println!("请输入请求编号:");
         io::stdin().read_line(&mut input).unwrap();
+
+        if input == String::new() {
+            println!("输入内容不能为空默认值为: 1");
+            input = "1".to_string();
+        }
+
         let mut num: i32 = match input.trim().parse() {
             Ok(num) => num,
             Err(_) => {
