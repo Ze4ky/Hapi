@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
@@ -20,5 +22,6 @@ pub struct RequestPayload {
 #[derive(Deserialize, Serialize)]
 pub struct RequestResponse {
     pub code: u16,
+    pub response_headers: HashMap<String, String>,
     pub response_body: Value,
 }
