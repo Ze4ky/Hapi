@@ -38,6 +38,7 @@ async fn main() {
             }
         };
         num -= 1;
+        input = String::new();
         let request_info = request_info_vec[num as usize].clone();
         let response = match api_client.request(request_info).await {
             Ok(resp) => resp,
