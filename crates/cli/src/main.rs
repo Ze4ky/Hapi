@@ -15,7 +15,15 @@ struct HeyApiCliArgs {
 #[tokio::main]
 async fn main() {
     let args = HeyApiCliArgs::parse();
-    let file = read_to_string(args.file).unwrap();
+
+    let file = match read_to_string(&args.file) {
+        Ok(f) => f,
+        Err(e) => {
+            println!("读取{}发生错误: {}", args.file, e);
+            return;
+        }
+    };
+
     let request_info_vec: Vec<RequestInfo> = serde_json::from_str(&file).unwrap();
     let api_client = Api::new();
 
