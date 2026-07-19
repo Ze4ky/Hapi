@@ -47,6 +47,10 @@ async fn main() {
             }
         };
         //println!("响应代码: {}", response.code);
-        println!("{}", response.response_body)
+        println!("  响应头:");
+        for (k, v) in response.response_headers {
+            println!("{}: {}", k, v)
+        }
+        println!("  {}", response.response_body);
     }
 }
