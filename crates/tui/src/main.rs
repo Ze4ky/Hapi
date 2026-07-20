@@ -60,11 +60,13 @@ fn app(
             match key.code {
                 KeyCode::Char('s') | KeyCode::Down => {
                     list_state.select_next();
-                    info_index = list_state.selected().unwrap_or(0) as i32;
+                    info_index = (list_state.selected().unwrap_or(0) as i32)
+                        .min(request_info_vec.len() as i32 - 1);
                 }
                 KeyCode::Char('w') | KeyCode::Up => {
                     list_state.select_previous();
-                    info_index = list_state.selected().unwrap_or(0) as i32;
+                    info_index = (list_state.selected().unwrap_or(0) as i32)
+                        .min(request_info_vec.len() as i32 - 1);
                 }
                 KeyCode::Esc => break Ok(()),
                 KeyCode::Enter => {
