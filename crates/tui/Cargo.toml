@@ -1,0 +1,10 @@
+[package]
+name = "hapi_tui"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ratatui = "0.30.2"
+hapi_core = { path = "../core" }
+serde_json.workspace = true
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/cli","crates/core"]
+members = ["crates/cli","crates/core", "crates/tui"]
 
 [workspace.dependencies]
 reqwest = { version = "0.13.4", features = ["json"] }
