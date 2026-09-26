@@ -38,4 +38,4 @@ hapi_cli
 ```
 
 > [!TIP]
-> hapi_cli默认不完整显示请求的内容如果需要显示万丈的请求内容添加`--enable_complete_dispay参数`
+> hapi_cli默认不完整显示请求的内容如果需要显示完整的请求内容添加`--enable_complete_dispay参数`
