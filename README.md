@@ -39,16 +39,3 @@ hapi_cli
 
 > [!TIP]
 > hapi_cli默认不完整显示请求的内容如果需要显示万丈的请求内容添加`--enable_complete_dispay参数`
-
-# hapi_tui
-
-基于ratatui编写的程序用于更直观的使用hapi
-
-> [!WARNING]
-> hapi_tui的运行目录下必须有request.json否则无法运行
-
-在工作目录下运行
-
-```
-hapi_tui
-```
