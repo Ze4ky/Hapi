@@ -1,0 +1,11 @@
+[
+  {
+    "name": "example",
+    "url": "http://loaclhost:8080/health",
+    "method": "GET",
+    "payload": {
+      "headers": {},
+      "body": {}
+    }
+  }
+]

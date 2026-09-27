@@ -3,6 +3,7 @@ use strum_macros::Display;
 
 #[derive(Clone, Display, Deserialize, Serialize)]
 pub enum RequestMethod {
+    NULL,
     #[strum(serialize = "POST")]
     POST,
     #[strum(serialize = "GET")]

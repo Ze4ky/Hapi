@@ -1,3 +1,5 @@
+use std::process::exit;
+
 use reqwest::Client;
 
 use crate::{
@@ -26,6 +28,10 @@ impl Api {
         request_info: RequestInfo,
     ) -> Result<RequestResponse, reqwest::Error> {
         match request_info.method {
+            RequestMethod::NULL => {
+                eprintln!("请求方法为空无法发送请求");
+                exit(0)
+            },
             RequestMethod::POST => {
                 let response =
                     post_request(self.client.clone(), &request_info.url, request_info.payload)

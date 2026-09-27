@@ -28,12 +28,12 @@ pub async fn post_request(
         .send()
         .await?;
 
-    let code = response.status().as_u16();
+    let is_success = response.status().is_success();
     let response_headers = extract_response_header(response.headers());
     let response_body = response.json().await?;
 
     Ok(RequestResponse {
-        code,
+        is_success,
         response_headers,
         response_body,
     })
@@ -47,12 +47,12 @@ pub async fn get_request(
     let headers = json_to_headers(&req_headers);
     let response = client.get(url).headers(headers).send().await?;
 
-    let code = response.status().as_u16();
+    let is_success = response.status().is_success();
     let response_headers = extract_response_header(response.headers());
     let response_body = response.json().await?;
 
     Ok(RequestResponse {
-        code,
+        is_success,
         response_headers,
         response_body,
     })
@@ -71,12 +71,12 @@ pub async fn put_request(
         .send()
         .await?;
 
-    let code = response.status().as_u16();
+    let is_success = response.status().is_success();
     let response_headers = extract_response_header(response.headers());
     let response_body = response.json().await?;
 
     Ok(RequestResponse {
-        code,
+        is_success,
         response_headers,
         response_body,
     })
@@ -94,13 +94,13 @@ pub async fn delete_request(
         .body(payload.body.to_string())
         .send()
         .await?;
-    let code = response.status().as_u16();
 
+    let is_success = response.status().is_success();
     let response_headers = extract_response_header(response.headers());
     let response_body = response.json().await?;
 
     Ok(RequestResponse {
-        code,
+        is_success,
         response_headers,
         response_body,
     })
@@ -119,12 +119,12 @@ pub async fn patch_request(
         .send()
         .await?;
 
-    let code = response.status().as_u16();
+    let is_success = response.status().is_success();
     let response_headers = extract_response_header(response.headers());
     let response_body = response.json().await?;
 
     Ok(RequestResponse {
-        code,
+        is_success,
         response_headers,
         response_body,
     })
