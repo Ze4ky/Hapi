@@ -72,6 +72,8 @@ pub fn write_result_file(target: HapiRunTarget, response: RequestResponse) {
         fs::File::create(result_file_path.clone()).unwrap();
     }
 
+    let mut result_vec: Vec<RequestResponse> = Vec::new();
+
     let result_file = match File::options().write(true).open(result_file_path.clone()) {
         Ok(res) => res,
         Err(e) => {
@@ -80,7 +82,9 @@ pub fn write_result_file(target: HapiRunTarget, response: RequestResponse) {
         }
     };
 
-    match serde_json::to_writer_pretty(result_file, &response){
+    result_vec.push(response);
+
+    match serde_json::to_writer_pretty(result_file, &result_vec){
         Ok(_) => (),
         Err(e) => {
             eprintln!("[{}:{}]写入{result_file_path}错误: {e}", module_path!(), line!())
